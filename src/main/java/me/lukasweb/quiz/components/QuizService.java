@@ -21,4 +21,15 @@ public class QuizService {
     public List<Question> getAllQuestionsByCategory(Category category) {
         return quizRepository.findAllByCategory(category);
     }
+
+    public Question changeQuestion(Question question) {
+        if(quizRepository.existsById(question.getId())){
+            return quizRepository.save(question);
+        }
+        return null;
+    }
+
+    public void deleteQuestionById(String id) {
+        quizRepository.findById(id).ifPresent(quizRepository::delete);
+    }
 }
