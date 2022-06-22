@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -31,5 +32,10 @@ public class QuizService {
 
     public void deleteQuestionById(String id) {
         quizRepository.findById(id).ifPresent(quizRepository::delete);
+    }
+
+    public boolean answer(String id, int answer) {
+        Optional<Question> questionFromDb = quizRepository.findById(id);
+        return questionFromDb.filter(question -> answer == question.getAnswer()).isPresent();
     }
 }

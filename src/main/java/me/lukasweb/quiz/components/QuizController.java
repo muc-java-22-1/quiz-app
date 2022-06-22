@@ -14,6 +14,13 @@ public class QuizController {
     public List<QuestionDTO> getAllQuestions() {
         return quizService.getAllQuestions();
     }
+    @GetMapping("/solve")
+    public boolean answer(@RequestBody Question question){
+        int answer = question.getAnswer();
+        String id = question.getId();
+        return quizService.answer(id, answer);
+    }
+
     @PostMapping
     public Question addQuestion(@RequestBody Question question){
         return quizService.addNewQuestion(question);
