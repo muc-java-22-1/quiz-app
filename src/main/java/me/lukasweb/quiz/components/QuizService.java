@@ -10,8 +10,8 @@ import java.util.List;
 public class QuizService {
     private final QuizMongoRepository quizRepository;
 
-    public List<Question> getAllQuestions() {
-        return quizRepository.findAll();
+    public List<QuestionDTO> getAllQuestions() {
+        return quizRepository.findAll().stream().map(QuestionDTO::new).toList();
     }
 
     public Question addNewQuestion(Question question) {

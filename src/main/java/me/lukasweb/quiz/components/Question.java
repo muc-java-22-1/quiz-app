@@ -19,5 +19,10 @@ public class Question {
     private int answer;
     private List<String> choices;
     private Category category;
+
+    public Question(QuestionDTO questionDTO){
+        id = questionDTO.getId();
+        question = questionDTO.getQuestion();
+    }
 }
 

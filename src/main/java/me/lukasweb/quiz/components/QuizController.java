@@ -11,7 +11,7 @@ import java.util.List;
 public class QuizController {
     private final QuizService quizService;
     @GetMapping
-    public List<Question> getAllQuestions() {
+    public List<QuestionDTO> getAllQuestions() {
         return quizService.getAllQuestions();
     }
     @PostMapping
