@@ -23,6 +23,7 @@ public class Question {
     public Question(QuestionDTO questionDTO){
         id = questionDTO.getId();
         question = questionDTO.getQuestion();
+        choices = questionDTO.getChoices();
     }
 }
 
